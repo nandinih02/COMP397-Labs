@@ -7,28 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: f6e93b12af32e994296dd715053ef040, type: 2}
+      name: RobotBody
+    second: {fileID: 2100000, guid: f96624c6b23f9da49babe629f2c2bbed, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 5f814870f01496844a7121e46a74f52b, type: 2}
+      name: RobotEye
+    second: {fileID: 2100000, guid: ec6cd6563caa28047ace94b183e073c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: b65b64194f41c6d4f9c26cd57793cb6e, type: 2}
+      name: RobotEyeRim
+    second: {fileID: 2100000, guid: d5389f36200bbe346812499c7c9c1c4e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 4c86a091ca1ca5549a4809f9a9b555a0, type: 2}
+      name: RobotHand
+    second: {fileID: 2100000, guid: 769db75ae0a459a4385351092f21877c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: 7e4d8f36291877b4c996fa3c7499b262, type: 2}
+      name: RobotHand.001
+    second: {fileID: 2100000, guid: 93629fa54c53fcc4da1ec0b03dd0f8ad, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
