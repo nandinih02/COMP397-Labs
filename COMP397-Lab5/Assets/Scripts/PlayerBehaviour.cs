@@ -18,6 +18,10 @@ public class PlayerBehaviour : MonoBehaviour
     public LayerMask groundMask;
     public bool isGrounded;
 
+    [Header("Health System")]
+    public UIControls controls;
+    public bool isColliding = false;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -53,5 +57,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+    }
+
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(!isColliding && hit.collider.gameObject.CompareTag("Enemy"))
+        {
+            controls.TakeDamage(10);
+            isColliding = true;
+        }
+        
     }
 }
