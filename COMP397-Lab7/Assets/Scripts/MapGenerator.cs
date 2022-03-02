@@ -6,6 +6,9 @@ public class MapGenerator : MonoBehaviour
 {
     [Header("Tile Resources")]
     public List<GameObject> tilePrefabs;
+    public GameObject startTile;
+    public GameObject goalTile;
+
 
     [Header("Map Properties")]
     [Range(2,30)]
@@ -44,33 +47,49 @@ public class MapGenerator : MonoBehaviour
         startHeight = height;
         var tempTile = tiles[0];
         var size = tiles.Count;
-        for (int i = 1; i < size; i++)
+        for (int i = 0; i < size; i++)
         {
             Destroy(tiles[i]);
         }
         tiles.Clear();
-        tiles.Add(tempTile);
     }
 
     public void buildMap()
     {
         var offset = new Vector3(20.0f, 0.0f, 20.0f);
+        //place the start tile
+        tiles.Add(Instantiate(startTile, Vector3.zero, Quaternion.identity, parent));
+
+        //choose random goal position
+        var randomGoalRow = Random.Range(1, height + 1);
+        var randomGoalCol = Random.Range(1, width + 1);
+        int count = 0;
+
         //Generate more tiles if both width and height are greater than 2
         for (int row = 1; row <= height; row++)
         {
 
             for (int col = 1; col <= width; col++)
             {
-                if (row == 1 && col == 1) { continue; }
-                var randomPrefabIndex = Random.Range(0, 4);
-                var randomRotation = Quaternion.Euler(0.0f, Random.Range(0, 4) * 90.0f, 0.0f);
+                if (row == 1 && col == 1) {continue;}
+
                 var tilePosition = new Vector3(col * 20.0f, 0.0f, row * 20.0f) - offset;
-                tiles.Add(Instantiate(tilePrefabs[randomPrefabIndex], tilePosition, randomRotation, parent));
 
-
+                if (row == randomGoalRow && col == randomGoalCol) 
+                { 
+                    tiles.Add(Instantiate(goalTile, tilePosition, Quaternion.identity, parent));
+                }
+                else
+                {
+                    var randomPrefabIndex = Random.Range(0, 4);
+                    var randomRotation = Quaternion.Euler(0.0f, Random.Range(0, 4) * 90.0f, 0.0f);
+                    tiles.Add(Instantiate(tilePrefabs[randomPrefabIndex], tilePosition, randomRotation, parent));
+                }
+             
+               
             }
         }
+        
 
-       
     }
 }

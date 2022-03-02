@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7131897895667787501
+--- !u!1 &3313833907180243956
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7131897895667787497}
-  - component: {fileID: 7131897895667787498}
-  - component: {fileID: 7131897895667787499}
-  - component: {fileID: 7131897895667787500}
+  - component: {fileID: 3313833907180243952}
+  - component: {fileID: 3313833907180243955}
+  - component: {fileID: 3313833907180243954}
+  - component: {fileID: 3313833907180243957}
   m_Layer: 6
-  m_Name: Start Tile
+  m_Name: Goal Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7131897895667787497
+--- !u!4 &3313833907180243952
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131897895667787501}
+  m_GameObject: {fileID: 3313833907180243956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9138205233495012661}
+  - {fileID: 3591022595558348844}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7131897895667787498
+--- !u!33 &3313833907180243955
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131897895667787501}
+  m_GameObject: {fileID: 3313833907180243956}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7131897895667787499
+--- !u!23 &3313833907180243954
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131897895667787501}
+  m_GameObject: {fileID: 3313833907180243956}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51ed3c52997dc2e4f8fe671bcdcaf52d, type: 2}
+  - {fileID: 2100000, guid: d37f8f7ca6275e643b06fe1d52025e02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7131897895667787500
+--- !u!64 &3313833907180243957
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131897895667787501}
+  m_GameObject: {fileID: 3313833907180243956}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -99,12 +99,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &2615870298612457070
+--- !u!1001 &7730988503084282743
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7131897895667787497}
+    m_TransformParent: {fileID: 3313833907180243952}
     m_Modifications:
     - target: {fileID: 5897408459819708897, guid: e01990da4168ed542938a53269db343c, type: 3}
       propertyPath: m_Name
@@ -168,8 +168,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01990da4168ed542938a53269db343c, type: 3}
---- !u!4 &9138205233495012661 stripped
+--- !u!4 &3591022595558348844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6529125527429557083, guid: e01990da4168ed542938a53269db343c, type: 3}
-  m_PrefabInstance: {fileID: 2615870298612457070}
+  m_PrefabInstance: {fileID: 7730988503084282743}
   m_PrefabAsset: {fileID: 0}
