@@ -22,6 +22,9 @@ public class PlayerBehaviour : MonoBehaviour
     public UIControls controls;
     public bool isColliding = false;
 
+    [Header("Onscreen Controller")]
+    public Joystick leftjoystick;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -37,8 +40,14 @@ public class PlayerBehaviour : MonoBehaviour
             velocity.y = -2.0f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        //foreach (var touch in Input.touches)
+        //{
+        //    Debug.Log(touch.position);
+        //}
+
+        //Keyboard Input (fallback)
+        float x = Input.GetAxis("Horizontal") + leftjoystick.Horizontal;
+        float z = Input.GetAxis("Vertical") + leftjoystick.Vertical;
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * maxSpeed * Time.deltaTime);
@@ -67,5 +76,13 @@ public class PlayerBehaviour : MonoBehaviour
             isColliding = true;
         }
         
+    }
+
+    public void OnAButton_Pressed()
+    {
+        if(isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+        }
     }
 }
