@@ -24,10 +24,27 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Onscreen Controller")]
     public Joystick leftjoystick;
+    public GameObject onScreenControls;
+    public GameObject miniMap;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        switch(Application.platform)
+        {
+            case RuntimePlatform.Android:
+                //turn on Onscreen Controls
+                onScreenControls.SetActive(true);
+                break;
+            case RuntimePlatform.WebGLPlayer:
+                //Turn Onscreen Controls Off
+                onScreenControls.SetActive(false);
+                break;
+            case RuntimePlatform.WindowsEditor:
+                //Turn off Onscreen Controls
+                onScreenControls.SetActive(false);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -60,6 +77,11 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            miniMap.SetActive(!miniMap.activeInHierarchy);
+        }
     }
 
     void OnDrawGizmos()
@@ -78,11 +100,18 @@ public class PlayerBehaviour : MonoBehaviour
         
     }
 
-    public void OnAButton_Pressed()
+    public void OnJumpButton_Pressed()
     {
         if(isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
         }
+    }
+
+    public void onMapButton_Pressed()
+    {
+        //Toggle Minimap
+        miniMap.SetActive(!miniMap.activeInHierarchy);
+
     }
 }

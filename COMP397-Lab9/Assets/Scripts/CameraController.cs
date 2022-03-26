@@ -4,26 +4,43 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float mouseSensitivity = 1000.0f;
+    public float controllerSensitivity = 10.0f;
     public Transform playerBody;
     public Joystick rightjoystick;
 
     private float xRotation = 0.0f;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if(Application.platform != RuntimePlatform.Android)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity + rightjoystick.Horizontal;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity + rightjoystick.Vertical;
+        float horizontal;
+        float vertical;
 
-        xRotation -= mouseY;
+        if(Application.platform != RuntimePlatform.Android)
+        {
+            horizontal = Input.GetAxis("Mouse X") * controllerSensitivity;
+            vertical = Input.GetAxis("Mouse Y") * controllerSensitivity;
+        }
+        
+        else
+        {
+           horizontal = rightjoystick.Horizontal;
+           vertical = rightjoystick.Vertical;
+        }
+        
+
+        xRotation -= vertical;
         xRotation = Mathf.Clamp(xRotation, -90.0f, 90.0f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0.0f, 0.0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        playerBody.Rotate(Vector3.up * horizontal);
     }
 }
