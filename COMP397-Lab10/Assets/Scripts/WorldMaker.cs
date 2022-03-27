@@ -5,9 +5,10 @@ using UnityEngine;
 public class WorldMaker : MonoBehaviour
 {
     [Header("Player Properties")]
+    public GameObject playerPrefabs;
      
     [Header("World Properties")]
-    [Range(1,16)]
+    [Range(1,64)]
     public int height=1;
     [Range(1, 64)]
     public int width=1;
@@ -36,19 +37,28 @@ public class WorldMaker : MonoBehaviour
     {
         grid = new List<GameObject>();
 
+        Generate();
+    }
+
+    private void Generate()
+    {
         Initialize();
         Reset();
         Regenerate();
-    }
+        PositionPlayer();
 
+    }
     void Update()
     {
         if(height != startHeight || depth != startDepth || width != startWidth || min != startMin || max != startMax)
         {
-            Initialize();
-            Reset();
-            Regenerate();
+            Generate();
             
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Generate();
         }
     }
 
@@ -95,5 +105,12 @@ public class WorldMaker : MonoBehaviour
             Destroy(tile);
         }
         grid.Clear();
+    }
+    private void PositionPlayer()
+    {
+        playerPrefabs.GetComponent<CharacterController>().enabled = false;
+
+        playerPrefabs.transform.position = new Vector3(width * 0.5f, height + 10.0f, +depth * 0.5f);
+        playerPrefabs.GetComponent<CharacterController>().enabled = true;
     }
 }
