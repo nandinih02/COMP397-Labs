@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Maze.unity
     guid: db3fa2ea36de3af438e30d3ec68c8cde
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Procedural.unity
     guid: 3af16ee6a045eae4ab06a2d21bba79c3
+  - enabled: 1
+    path: Assets/Scenes/NetCode.unity
+    guid: 17550a02a47e1714ea6789ccea063e28
   m_configObjects: {}
